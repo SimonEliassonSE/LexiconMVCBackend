@@ -1,0 +1,50 @@
+﻿@model PeopleViewModel
+
+@{
+    ViewData["Title"] = "User Data";
+}
+
+
+<div class="col-lg-10 container-fluid">
+    <div class="card" id="CardBody">
+        <div class="col-lg-10" id="Search">
+            <form method="get" asp-action="FindUser">
+                <p>
+                    <input type="submit" value="Search" class="btn btn-primary" /> <input type="search" placeholder="Search city or name" asp-for="SearchFilter" />
+                </p>                       
+                <a asp-action="Index">Show al users</a>
+            </form>
+        </div>
+  
+        <div class="col-lg-10" id="AddPerson">
+
+                <form asp-controller="People" asp-action="AddToList" method="post">
+                <div class="addform-label align-content-lg-end ">
+                    <label asp-for="PVM.Name"></label> 
+                    <input class="m-0" asp-for="PVM.Name" type="text"/>
+                    <span asp-validation-for="PVM.Name"></span>
+                </div>
+                <div class="addform-label align-content-lg-end ">
+                    <label asp-for="PVM.Phonenumber"></label> 
+                    <input class="m-0" asp-for="PVM.Phonenumber"/>
+                    <span asp-validation-for="PVM.Phonenumber"></span>
+                </div>
+                <div class="addform-label align-content-lg-end ">
+                    <label>City: </label>
+                <select class ="col-lg-2" name="cityid" asp-items="ViewBag.Cities"></select>
+                <Option Value ="" selected disabled>Select City</Option>
+                </div>
+                <p></p>
+                <input class="align-content-lg-end" type="submit" value="New Person" />
+                
+            </form>     
+        </div>
+        <div class="col-lg-12" id="DisplayPeopleTable">
+            <partial name="_people" model="@Model" />
+        </div class="ButtonContainer"> 
+        <div>                  
+        </div>
+    </div>
+</div>
+
+

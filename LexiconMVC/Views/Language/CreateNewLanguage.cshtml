@@ -1,0 +1,50 @@
+﻿@model LanguageViewModel
+
+@{
+    ViewData["Title"] = "CreateNewLanguage";
+}
+
+
+
+<div class="CreateCountryHeader container-fluid">
+    <input type="button" value="Main Menu" onclick="location.href='@Url.Action("Index", "People")'" />
+    <input type="button" value="Language Menu" onclick="location.href='@Url.Action("LanguageIndex", "Language")'" />
+</div>
+
+<div class="CreateCountryContainer col-lg-8">
+    <h1>Create New Language</h1>
+    <div class="CreateCountryForm">
+        <form asp-controller="Language" asp-action="CreateNewLanguage" method="post">
+            <div class="addform-label">
+                <label asp-for="LanguageName"></label>
+                <input class="m-0" asp-for="LanguageName" type="text" />
+                <span asp-validation-for="LanguageName"></span>
+                <p></p>
+            </div>
+            <input class="" type="submit" value="Create Language" />
+        </form>
+    </div>
+    <div class="CreateCountryTable">
+        <table class="table CreateCountryTable @*col-lg-10 container-fluid*@">
+            <thead>
+                <tr>
+                    <th>Language Íd</th>
+                    <th>Language</th>
+
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model.LanguageList)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.LanguageName</td>
+                        <td></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

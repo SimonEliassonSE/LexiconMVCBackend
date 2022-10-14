@@ -1,0 +1,13 @@
+﻿@model PeopleViewModel
+
+
+<div class="col-lg-10" id="DisplayPeopleTable">
+        @foreach (Person item in Model.PeopleList)
+        {
+            <div class="row col-lg-12">
+                <p>| @item.Id | @item.Name | @item.Phonenumber | @item.City.CityName | <a asp-action="EditPerson" asp-route-id="@item.Id" class="btn btn-success">Edit</a> @if(User.IsInRole("Admin")) {<a asp-action="DeleteFromList" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>} |</p>
+            </div>
+        }
+        
+</div>
+

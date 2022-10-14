@@ -1,0 +1,47 @@
+﻿@model CityViewModel
+
+@{
+    ViewData["Title"] = "CityIndex";
+}
+
+<div class="CityContainer col-lg-8">
+    <h1>City Index</h1>
+    <div class="CityTable">
+        <table class="table CityTable @*col-lg-10 container-fluid*@">
+            <thead>
+                <tr>
+                    <th>City Id</th>
+                    <th>City Name</th>
+                    <th>Country</th>
+                    <th>Delete/Edit</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model.CityList)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.CityName</td>
+                        <td>@item.Country.CountryName</td>
+                        <td>  
+                             <a asp-action="EditCity" asp-route-id="@item.Id" class="btn btn-success">Edit</a>  
+                             <a asp-action="DeleteCityFromList" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                             @*@Html.ActionLink("Delete", "DeleteCityFromList", new {DeleteId = item.Id}) | 
+                             @Html.ActionLink("Edit", "EditCity", new { cityId = item.Id})*@ </td>
+                        <td>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+        <div class="CityHeader container-fluid">
+        <input type="button" value="Main Menu" onclick="location.href='@Url.Action("Index", "People")'" />
+        <input type="button" value="Create City" onclick="location.href='@Url.Action("CreateNewCity", "City")'" />
+    </div>
+</div>
+
+
+

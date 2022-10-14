@@ -1,0 +1,54 @@
+﻿@*
+@model List<CountryViewModel>
+
+@{
+    ViewData["Title"] = "UpdateCityToCountryRelation";
+}
+
+<h1>Update city to country relation</h1>
+<div class="container">
+    <div class="form-group">
+        <a asp-action="ReturnToPeopleIndex">Return to Main Menu</a>
+        <p></p>
+        <a asp-action="CountryIndex">Return to Language Table</a>
+        <form asp-action="UpdateCityToCountryRelation" method="post">
+            <div class="container-fluid col-lg-10">
+                <label>Country: </label>
+                <select name="countryid" class="form-control" asp-items="ViewBag.Countries"></select>
+            </div>
+            <div class="container-fluid col-lg-10">
+                <label>City: </label>
+                <select name="cityid" class="form-control" asp-items="ViewBag.Cities"></select>
+                <input type="submit" value="Add City to Country" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>City Name</th>
+                    <th>Country name</th>                    
+                    <th>Continent</th>
+                    <th>Country Id</th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+
+                    <tr>
+                      <td>@item.CityName</td> 
+                        <td>@item.CountryName</td>                                                                   
+                        <td>@item.Continent</td>
+                        <td>@item.Id</td>
+                        <td>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>*@

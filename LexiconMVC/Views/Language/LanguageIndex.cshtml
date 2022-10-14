@@ -1,0 +1,45 @@
+﻿@model LanguageViewModel
+
+@{
+    ViewData["Title"] = "LanguageIndex";
+}
+
+<div class="CityContainer col-lg-8">
+    <h1>Language Index</h1>
+    <div class="CityTable">
+        <table class="table CityTable @*col-lg-10 container-fluid*@">
+            <thead>
+                <tr>
+                    <th>Laguage Id</th>
+                    <th>Language</th>  
+                    <th>Delete/Edit</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model.LanguageList)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.LanguageName</td>                       
+                        <td>
+                            <a asp-action="EditLanguage" asp-route-id="@item.Id" class="btn btn-success">Edit</a>  
+                            <a asp-action="DeleteLanguageFromList" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                            @*@Html.ActionLink("Delete", "DeleteLanguageFromList", new {languageId = item.Id}) | 
+                            @Html.ActionLink("Edit", "EditLanguage", new { languageId = item.Id}) </td>*@
+                        
+                        <td>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+        <div class="CityHeader container-fluid">
+        <input type="button" value="Main menu" onclick="location.href='@Url.Action("Index", "People")'" />
+        <input type="button" value="Create new language" onclick="location.href='@Url.Action("CreateNewLanguage", "Language")'" />
+        <input type="button" value="Add language to person" onclick="location.href='@Url.Action("AddLanguageToPerson", "Language")'" />
+    </div>
+</div>
+

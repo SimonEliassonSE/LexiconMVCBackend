@@ -1,0 +1,33 @@
+﻿@model Language
+@{
+    ViewData["Title"] = "EditLanguage";
+}
+
+
+
+<div class="CityHeader container-fluid">
+    <input type="button" value="Main Menu" onclick="location.href='@Url.Action("Index", "People")'" />
+    <input type="button" value="Language Menu" onclick="location.href='@Url.Action("LanguageIndex", "Language")'" />
+</div>
+
+<div class="CreateCityForm container-fluid">
+    <h1>Edit Language</h1>
+    <div class="container-fluid col-lg-10">
+        <form asp-controller="Language" asp-action="EditLanguage" method="post">
+            <div class="container-fluid col-lg-6">
+                <label asp-for="Id"></label>
+                <input class="m-0" asp-for="Id" type="text" readonly />
+                <span asp-validation-for="Id"></span>
+                <p></p>
+            </div>
+            <div class="container-fluid col-lg-6">
+                <label asp-for="LanguageName"></label>
+                <input class="m-0" asp-for="LanguageName" type="text" />
+                <span asp-validation-for="LanguageName"></span>
+                <p></p>
+            </div>
+            <input class="" type="submit" value="Edit Language" />
+        </form>
+    </div>
+</div>
+

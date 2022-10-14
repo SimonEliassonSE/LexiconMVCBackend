@@ -1,0 +1,53 @@
+﻿@model CityViewModel
+@{
+    ViewData["Title"] = "CreateNewCity";
+}
+
+    <div class="CityHeader container-fluid">
+        <input type="button" value="Main Menu" onclick="location.href='@Url.Action("Index", "People")'" />
+        <input type="button" value="City Menu" onclick="location.href='@Url.Action("CityIndex", "City")'" />
+    </div>
+
+<div class="CreateCityContainer col-lg-8">
+            <h1>Create New City</h1>
+    <div class="CreateCityForm">
+        <form asp-controller="City" asp-action="CreateNewCity" method="post">
+            <div class="addform-label">
+                <label asp-for="CityName"></label>
+                <input class="m-0" asp-for="CityName" type="text" />
+                <span asp-validation-for="CityName"></span>
+                <p></p>
+            </div>
+            <div class="addform-label align-content-lg-end ">
+                <label>Country: </label>
+                <select class="col-lg-2" name="countryid" asp-items="ViewBag.Countries"></select>
+                <Option Value="" selected disabled></Option>
+                <p></p>
+            </div>           
+            <input class="" type="submit" value="Create City" />
+        </form>
+    </div>
+        <div class="CreateCityTable">
+        <table class="table CityTable @*col-lg-10 container-fluid*@">
+            <thead>
+                <tr>
+                    <th>City Id</th>
+                    <th>City Name</th>
+                    <th>Country</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.CityList)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.CityName</td>
+                        <td>@item.Country.CountryName</td>
+                         <td></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

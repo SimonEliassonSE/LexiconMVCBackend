@@ -1,0 +1,46 @@
+﻿@model IEnumerable<IdentityRole>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<div class="roleIndexContainer col-lg-12">
+    <div class="roleIndexHeader" style="align-content:flex-start">
+        <h1>List of roles</h1>
+        <a asp-action="Create" class="btn btn-primary">Create new role</a>
+        <a asp-action="AddUserToRole" class="btn btn-success">Add user to role</a>
+    </div>
+    <div class="roleIndexTable col-lg-10">
+    <table class="table" style="width:1000px">
+        <thead>
+            <tr>
+                <th style="width:500px">
+                    Id
+                </th>
+                <th>
+                    Name
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (var role in Model)
+        {
+            <tr>
+                <td style="width:500px">@role.Id</td>
+                <td>@role.Name</td>
+                <td>
+                    @if(role.Name != "User" && role.Name != "Admin")
+                        {
+                            // vi fångar Id genom role.Id och skickar Id till actionen "Delete" i controllern Role
+                             <a asp-action="Delete" asp-route-id="@role.Id" class="btn btn-danger">Delete role</a>
+                        }
+                       
+                </td>
+            </tr>
+        }
+    </table>
+    </div>
+</div>
+

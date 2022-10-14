@@ -1,0 +1,35 @@
+﻿
+
+@model Country
+
+@{
+    ViewData["Title"] = "EditCountry";
+}
+
+<div class="CreateCityForm container-fluid">
+    <h1>Edit Country</h1>
+    <div class="container-fluid col-lg-10">
+        <form asp-controller="Country" asp-action="EditCountry" method="post">
+            <div class="container-fluid col-lg-6">
+                <label asp-for="Id"></label>
+                <input class="m-0" asp-for="Id" type="text" readonly />
+                <span asp-validation-for="Id"></span>
+                <p></p>
+            </div>
+            <div class="container-fluid col-lg-6">
+                <label asp-for="CountryName"></label>
+                <input class="m-0" asp-for="CountryName" type="text" />
+                <span asp-validation-for="CountryName"></span>
+                <p></p>
+            </div>
+            <div class="container-fluid col-lg-6">
+                <label asp-for="Continent"></label>
+                <input class="m-0" asp-for="Continent" type="text" />
+                <span asp-validation-for="Continent"></span>
+                <p></p>
+            </div>
+             <input class="" type="submit" value="Edit Country" />
+        </form>
+    </div>
+</div>
+

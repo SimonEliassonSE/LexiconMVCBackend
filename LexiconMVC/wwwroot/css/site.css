@@ -1,0 +1,44 @@
+﻿
+html{
+    font-family:sans-serif;
+}
+
+PeopleContainer{
+    margin: 50px auto;
+    padding: 30px;
+}
+
+
+#Search, #AddPerson, #DisplayPeopleTable{
+    margin-left: auto;
+    margin:20px auto;
+    padding: 10px;
+    margin-left:auto;
+    text-align:end;
+}
+
+#CardBody{
+    margin: 20px auto;
+    padding: 10px;
+}
+
+#ButtonContainer{
+    margin: 30px auto;
+    padding: 10px;
+}
+
+.CityContainer, .CreateCityContainer, .CountryContainer, .CreateCountryContainer {
+    margin: 30px auto;
+}
+
+.CityTable, . CreateCountryTable., CreateCityTable {
+    margin: 10px auto;
+}
+
+/*.CreateCityForm,*/ .CountryHeader {
+    text-align: center;
+}
+
+.CreateCountryHeader, .CountryHeader, .CityHeader, .CreateCityHeader {
+    text-align: left;
+}

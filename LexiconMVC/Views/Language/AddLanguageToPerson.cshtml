@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "AddLanguageToPerson";
+}
+<div class="container container-fluid"> 
+<h1>Add language to person</h1>
+
+
+        <a asp-action="ReturnToPeopleIndex">Return to Main Menu</a>
+       <p></p>
+        <a asp-action="LanguageIndex">Return to Language Menu</a>
+ 
+        <form asp-action="AddLanguageToPerson" method="post">
+
+                <label>Person: </label>
+                <select name="personid" class="form-control" asp-items="ViewBag.People"></select>
+                
+                <label>Language: </label>
+                <select name="languageid" class="form-control" asp-items="ViewBag.Languages"></select>
+
+                <input type="submit" value="Add language to person" class="btn btn-primary" />
+
+        </form>
+</div>

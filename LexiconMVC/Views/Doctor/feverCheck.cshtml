@@ -1,0 +1,39 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@{
+    ViewData["Title"] = "FeverCheck";
+}
+
+<section class="head pb-5">
+    <div class="container py-5">
+        <div class="card">
+            <div class="card-body">               
+                <div class="row container-fluid">
+                    <div class="col-lg-6">
+                        <form asp-action="FeverCheck" method="post">
+                            <label>Please add your current temp</label>
+                            <input type="number" name="fever" step=".1" /> <input type="submit" value="Check fever" required/>
+                            <p></p>
+                            @if (ViewBag.Message != null)
+                            {                                
+                                <p>@ViewBag.Message</p>
+                            }
+
+                        </form>
+
+                        <div class="col-lg-6"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+

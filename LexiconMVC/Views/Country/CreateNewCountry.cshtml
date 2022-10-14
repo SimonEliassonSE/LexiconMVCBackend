@@ -1,0 +1,58 @@
+﻿
+@model CreateCountryViewModel
+
+@{
+    ViewData["Title"] = "CreateNewCountry";
+}
+
+
+</div>
+        <div class="CreateCountryHeader container-fluid">
+        <input type="button" value="Main Menu" onclick="location.href='@Url.Action("Index", "People")'" />
+        <input type="button" value="Country Menu" onclick="location.href='@Url.Action("CountryIndex", "Country")'" />
+    </div>
+  
+<div class="CreateCountryContainer col-lg-8">
+    <h1>Create New Country</h1>
+    <div class="CreateCountryForm">
+        <form asp-controller="Country" asp-action="CreateNewCountry" method="post">
+            <div class="addform-label">
+                <label asp-for="CountryName"></label>
+                <input class="m-0" asp-for="CountryName" type="text" />
+                <span asp-validation-for="CountryName"></span>
+                <p></p>
+            </div>
+            <div class="addform-label">
+                <label asp-for="Continent"></label>
+                <input class="m-0" asp-for="Continent" type="text" />
+                <span asp-validation-for="Continent"></span>
+                <p></p>
+            </div>       
+            <input class="" type="submit" value="Create Country" />
+        </form>
+    </div>
+    <div class="CreateCountryTable">
+        <table class="table CreateCountryTable @*col-lg-10 container-fluid*@">
+            <thead>
+                <tr>
+                    <th>Country Id</th>
+                    <th>Country</th>
+                    <th>Continent</th>
+
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model.CountriesList)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.CountryName</td>
+                        <td>@item.Continent</td>
+                        <td></td>
+                    </tr>
+                }
+            </tbody>
+        </table>    
+</div>

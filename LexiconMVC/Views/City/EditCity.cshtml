@@ -1,0 +1,38 @@
+﻿@model CityViewModel
+
+@{
+    ViewData["Title"] = "EditCity";
+}
+
+<div class="CityHeader container-fluid">
+    <input type="button" value="Main Menu" onclick="location.href='@Url.Action("Index", "People")'" />
+    <input type="button" value="City Menu" onclick="location.href='@Url.Action("CityIndex", "City")'" />
+</div>
+
+<div class="CreateCityForm container-fluid">
+    <h1>Edit City</h1>
+    <div class="container-fluid col-lg-10">
+        <form asp-controller="City" asp-action="EditCity" method="post">
+            <div class="container-fluid col-lg-6">
+                <label asp-for="Id"></label>
+                <input class="m-0" asp-for="Id" type="text" readonly />
+                <span asp-validation-for="Id"></span>
+                <p></p>
+            </div>
+            <div class="container-fluid col-lg-6">
+                <label asp-for="CityName"></label>
+                <input class="m-0" asp-for="CityName" type="text" />
+                <span asp-validation-for="CityName"></span>
+                <p></p>
+            </div>
+            <div class="container-fluid col-lg-6">
+                <label>Country: </label>
+                <select class="col-lg-2" name="countryId" asp-items="ViewBag.Countries"></select>
+                <Option Value="" selected disabled></Option>
+                <p></p>
+            </div>
+            <input class="" type="submit" value="Edit City" />
+        </form>
+    </div>
+</div>
+

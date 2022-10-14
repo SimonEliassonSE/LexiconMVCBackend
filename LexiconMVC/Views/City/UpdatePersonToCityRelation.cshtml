@@ -1,0 +1,55 @@
+﻿
+@*
+@model List<CityViewModel>
+@{
+    ViewData["Title"] = "UpdatePersonToCityRelation";
+}
+<div class="container">
+<h1>Update person to city relation</h1>
+
+    <div class="container-fluid">
+        <a asp-action="ReturnToPeopleIndex">Return to Main Menu</a>
+        <p></p>
+        <a asp-action="CityIndex">Return to City Table</a>
+        </div>
+        <div class="container-fluid">
+        <form asp-action="UpdatePersonToCityRelation" method="post">            
+                <label>Person: </label>
+                <select name="personid" class="form-control" asp-items="ViewBag.People"></select>      
+                <label>City: </label>
+                <select name="cityid" class="form-control" asp-items="ViewBag.Cities"></select>
+                <p></p>
+                <input type="submit" value="Add person to City" class="btn btn-primary" />    
+                <p></p>
+        </form>
+        </div>
+    
+    <div>        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Person Id</th>
+                    <th>Person Name</th>
+                    <th>Phonenumber</th>
+                    <th>City</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        @*<td>@item.PersonId</td>
+                       <td>@item.PersonName</td>
+                        <td>@item.Phonenumber</td>
+                        <td>@item.CityName</td>
+                        <td>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+*@
