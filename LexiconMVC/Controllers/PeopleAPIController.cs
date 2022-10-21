@@ -64,7 +64,36 @@ namespace LexiconMVC.Controllers
                 _context.People.Add(p);
                 _context.SaveChanges();
 
+                //var person = _context.People.OrderByDescending(x => x.Id).FirstOrDefault();
+                //var language = _context.Languages.FirstOrDefault(x => x.Id == fpd.LanguageId);
+
+                //if (person != null && language != null)
+                //{
+                //    person.LanguagesList.Add(language);
+                //    _context.SaveChanges();
+                //}
+
             }
+
+            //List<Person> people = _context.People.Include(x => x.LanguagesList).ToList();
+
+            //var person = _context.People.OrderByDescending(x => x.Id).FirstOrDefault();
+            //var language = _context.Languages.FirstOrDefault(x => x.Id == fpd.LanguageId);
+
+            //foreach (var aPerson in people)
+            //{
+            //    if (aPerson.Id == person.Id)
+            //    {
+            //        foreach (var aLanguage in aPerson.LanguagesList)
+            //        {
+            //            if (aLanguage.Id == fpd.LanguageId)
+            //            {
+            //                    person.LanguagesList.Add(language);
+            //                    _context.SaveChanges();
+            //            }
+            //        }
+            //    }
+            //}
 
             return p;
         }

@@ -8,11 +8,13 @@ namespace LexiconMVC.ViewModels
         //[Required]
         //public int id { get; set; }
 
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         public int Phonenumber { get; set; }
 
         public int CityId { get; set; }
+
+        public int LanguageId { get; set; }
         //[Required]
         //public string countryId { get; set; }
     }
