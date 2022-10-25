@@ -64,36 +64,19 @@ namespace LexiconMVC.Controllers
                 _context.People.Add(p);
                 _context.SaveChanges();
 
-                //var person = _context.People.OrderByDescending(x => x.Id).FirstOrDefault();
-                //var language = _context.Languages.FirstOrDefault(x => x.Id == fpd.LanguageId);
+                if(p != null)
+                {
+                    var person = _context.People.FirstOrDefault(x => x.Phonenumber == fpd.Phonenumber);
+                    var language = _context.Languages.FirstOrDefault(x => x.Id != fpd.LanguageId);
 
-                //if (person != null && language != null)
-                //{
-                //    person.LanguagesList.Add(language);
-                //    _context.SaveChanges();
-                //}
+                    if (person != null && language != null)
+                    {
+                        person.LanguagesList.Add(language);
+                        _context.SaveChanges();
+                    }
+                }
 
             }
-
-            //List<Person> people = _context.People.Include(x => x.LanguagesList).ToList();
-
-            //var person = _context.People.OrderByDescending(x => x.Id).FirstOrDefault();
-            //var language = _context.Languages.FirstOrDefault(x => x.Id == fpd.LanguageId);
-
-            //foreach (var aPerson in people)
-            //{
-            //    if (aPerson.Id == person.Id)
-            //    {
-            //        foreach (var aLanguage in aPerson.LanguagesList)
-            //        {
-            //            if (aLanguage.Id == fpd.LanguageId)
-            //            {
-            //                    person.LanguagesList.Add(language);
-            //                    _context.SaveChanges();
-            //            }
-            //        }
-            //    }
-            //}
 
             return p;
         }
@@ -177,9 +160,17 @@ namespace LexiconMVC.Controllers
         public void Delete(int id)
         {
             var person = _context.People.FirstOrDefault(x => x.Id == id);
+            if(person != null)
+            {
+                Response.StatusCode = 201;
+                _context.People.Remove(person);
+                _context.SaveChanges();
+            }
 
-            _context.People.Remove(person);
-            _context.SaveChanges();
+            else
+            {
+                Response.StatusCode = 400;
+            }
 
             //Get();
         }
